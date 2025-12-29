@@ -1,0 +1,74 @@
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    #printArea,
+    #printArea * {
+        visibility: visible;
+    }
+
+    #printArea {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    button,
+    .navbar,
+    .btn,
+    a {
+        display: none !important;
+    }
+}
+
+body {
+    background: linear-gradient(135deg, #74b4eb 0%, #ffffff 100%);
+}
+
+.pagination {
+    border-radius: 50px;
+    background-color: #f8f9fa;
+    padding: 4px;
+}
+
+.pagination .page-item {
+    margin: 0 2px;
+}
+
+.pagination .page-link {
+    border-radius: 50px !important;
+    transition: all 0.2s ease-in-out;
+}
+
+.pagination .page-item.disabled .page-link {
+    opacity: 0.6;
+}
+
+.login-card,
+.register-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem;
+}
+
+.stat-card {
+    transition: 0.2s;
+    border-radius: 12px;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.icon-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
