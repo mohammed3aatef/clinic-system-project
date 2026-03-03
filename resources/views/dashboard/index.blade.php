@@ -5,7 +5,7 @@
 
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2 class="fw-bold"><i class="bi bi-speedometer2"></i>
-               Your Dashboard</h2>
+                {{ __('general.your_dashboard') }}</h2>
         </div>
 
         <div class="row g-4">
@@ -15,7 +15,7 @@
                         <div class="icon-box bg-primary bg-opacity-10 text-primary mb-3">
                             <i class="bi bi-people fs-3"></i>
                         </div>
-                        <h6 class="text-uppercase fw-semibold">Total Patients</h6>
+                        <h6 class="text-uppercase fw-semibold">{{ __('general.total_patients') }}</h6>
                         <h3 class="fw-bold">{{ $patientsCount }}</h3>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                             <i class="bi bi-calendar-check fs-3"></i>
                         </div>
                         <h6 class="text-uppercase fw-semibold">
-                            Today’s Appointments
+                            {{ __('general.today_appointment') }}
                         </h6>
                         <h3 class="fw-bold">{{ $appointmentsToday }}</h3>
                     </div>
@@ -42,7 +42,7 @@
                             <i class="bi bi-clock-history fs-3"></i>
                         </div>
                         <h6 class="text-uppercase fw-semibold">
-                            Upcoming Appointments
+                            {{ __('general.upcoming_appointment') }}
                         </h6>
                         <h3 class="fw-bold">{{ $appointmentsUpcoming }}</h3>
                     </div>
@@ -56,7 +56,7 @@
                             <i class="bi bi-file-medical fs-3"></i>
                         </div>
                         <h6 class="text-uppercase fw-semibold">
-                            Today’s Prescriptions
+                            {{ __('general.today_prescription') }}
                         </h6>
                         <h3 class="fw-bold">{{ $prescriptionsToday }}</h3>
                     </div>
@@ -65,20 +65,20 @@
         </div>
 
         <div class="card shadow-sm border-0 mt-5">
-            <div class="card-header bg-white py-3">
+            <div class="card-header bg-body-secondary py-3">
                 <h5 class="fw-bold mb-0">
-                    <i class="bi bi-calendar-event me-1"></i> Upcoming Appointments
+                    <i class="bi bi-calendar-event me-1"></i> {{ __('general.upcoming_appointment') }}
                 </h5>
             </div>
 
             <div class="card-body p-0">
                 <div class="table-responsive">
                     <table class="table table-hover mb-0 align-middle">
-                        <thead class="table-light">
+                        <thead class="table-body">
                             <tr>
-                                <th>Patient</th>
-                                <th>Date & Time</th>
-                                <th>Status</th>
+                                <th>{{ __('general.patients') }}</th>
+                                <th>{{ __('general.date_time') }}</th>
+                                <th>{{ __('general.status') }}</th>
                             </tr>
                         </thead>
 
@@ -96,19 +96,19 @@
                                         </span>
                                     </td>
                                 </tr>
-                                @endforeach @if ($appointmentsUpcoming == 0)
-                                    <tr>
-                                        <td colspan="3" class="text-center py-4 text-muted">
-                                            <i class="bi bi-info-circle"></i> No upcoming
-                                            appointments.
-                                        </td>
-                                    </tr>
-                                @endif
+                            @endforeach
+
+                            @if ($appointmentsUpcoming == 0)
+                                <tr>
+                                    <td colspan="3" class="text-center py-4 text-muted">
+                                        <i class="bi bi-info-circle"></i> {{ __('general.no_appointment') }}.
+                                    </td>
+                                </tr>
+                            @endif
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
-
 @endsection

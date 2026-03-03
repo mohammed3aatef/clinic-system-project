@@ -86,7 +86,7 @@
 
             <div class="card-body p-0 overflow-x-scroll">
                 <table class="table table-striped table-hover mb-0 align-middle">
-                    <thead class="table-light">
+                    <thead class="table-body">
                         <tr>
                             <th><i class="bi bi-hash"></i></th>
                             <th><i class="bi bi-person"></i> Patient</th>
@@ -172,60 +172,9 @@
 
             </div>
 
-            @if ($prescriptions->hasPages())
-                <nav aria-label="Pagination" class="d-flex justify-content-center mt-3">
-                    <ul class="pagination shadow-sm border rounded-pill overflow-hidden">
-
-                        @if ($prescriptions->onFirstPage())
-                            <li class="page-item disabled">
-                                <span class="page-link border-0 bg-light text-secondary px-3 py-2">
-                                    <i class="bi bi-chevron-left"></i> Prev
-                                </span>
-                            </li>
-                        @else
-                            <li class="page-item">
-                                <a class="page-link border-0 bg-white text-primary fw-semibold px-3 py-2"
-                                    href="{{ $prescriptions->previousPageUrl() }}" rel="prev">
-                                    <i class="bi bi-chevron-left"></i> Prev
-                                </a>
-                            </li>
-                        @endif
-
-                        @foreach ($prescriptions->links()->elements[0] ?? [] as $page => $url)
-                            @if ($page == $prescriptions->currentPage())
-                                <li class="page-item active">
-                                    <span class="page-link border-0 bg-primary text-white fw-semibold px-3 py-2">
-                                        {{ $page }}
-                                    </span>
-                                </li>
-                            @else
-                                <li class="page-item">
-                                    <a class="page-link border-0 bg-white text-primary fw-semibold px-3 py-2"
-                                        href="{{ $url }}">
-                                        {{ $page }}
-                                    </a>
-                                </li>
-                            @endif
-                        @endforeach
-
-                        @if ($prescriptions->hasMorePages())
-                            <li class="page-item">
-                                <a class="page-link border-0 bg-white text-primary fw-semibold px-3 py-2"
-                                    href="{{ $prescriptions->nextPageUrl() }}" rel="next">
-                                    Next <i class="bi bi-chevron-right"></i>
-                                </a>
-                            </li>
-                        @else
-                            <li class="page-item disabled">
-                                <span class="page-link border-0 bg-light text-secondary px-3 py-2">
-                                    Next <i class="bi bi-chevron-right"></i>
-                                </span>
-                            </li>
-                        @endif
-
-                    </ul>
-                </nav>
-            @endif
+            <div class="d-flex justify-content-center mt-4">
+                {{ $prescriptions->links() }}
+            </div>
 
         </div>
 

@@ -36,6 +36,6 @@ class ProfileController extends Controller
 
         $user->save();
 
-        return redirect()->route('profile.index');
+        return redirect()->route('profile.index')->with('success', 'Profile has been updated.');
     }
 }

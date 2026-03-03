@@ -6,12 +6,12 @@
     <div class="container my-5 vh-100">
 
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h3 class="fw-bold text-dark">
+            <h3 class="fw-bold text-body">
                 <i class="bi bi-calendar2-check"></i> My Appointment
             </h3>
             <div class="d-flex justify-content-end gap-2">
-                <a href="{{ route('appointments.book') }}" class="btn btn-outline-dark fw-bold">
-                    <i class="bi bi-plus-circle"></i> Add your appointment</a>
+                <a href="{{ route('appointments.book') }}" class="btn btn-outline-secondary fw-bold">
+                    <i class="bi bi-plus-circle me-2"></i> Add your appointment</a>
             </div>
         </div>
 
@@ -21,7 +21,7 @@
                 <div class="table-responsive">
                     <table class="table table-hover align-middle mb-0">
 
-                        <thead class="table-light">
+                        <thead class="table-body">
                             <tr>
                                 <th><i class="bi bi-clock"></i> Date & Time</th>
                                 <th><i class="bi bi-info-circle"></i> Status</th>

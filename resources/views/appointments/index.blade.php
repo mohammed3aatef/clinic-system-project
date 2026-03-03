@@ -90,7 +90,7 @@
 
             <div class="card-body p-0 overflow-x-scroll">
                 <table class="table table-striped table-hover mb-0 align-middle">
-                    <thead class="table-light">
+                    <thead class="table-body">
                         <tr>
                             <th><i class="bi bi-hash"></i></th>
                             <th><i class="bi bi-person"></i> Patient</th>
@@ -149,53 +149,9 @@
                 </table>
             </div>
 
-            @if ($appointments->hasPages())
-                <nav aria-label="Pagination" class="d-flex justify-content-center mt-3">
-                    <ul class="pagination shadow-sm border rounded-pill overflow-hidden">
-                        @if ($appointments->onFirstPage())
-                            <li class="page-item disabled">
-                                <span class="page-link border-0 bg-light text-secondary px-3 py-2">
-                                    <i class="bi bi-chevron-left"></i> Prev
-                                </span>
-                            </li>
-                        @else
-                            <li class="page-item">
-                                <a class="page-link border-0 bg-white text-success fw-semibold px-3 py-2"
-                                    href="{{ $appointments->previousPageUrl() }}" rel="prev">
-                                    <i class="bi bi-chevron-left"></i> Prev
-                                </a>
-                            </li>
-                        @endif
-
-                        @foreach ($appointments->getUrlRange(max(1, $appointments->currentPage() - 1), min($appointments->lastPage(), $appointments->currentPage() + 1)) as $page => $url)
-                            <li class="page-item {{ $page == $appointments->currentPage() ? 'active' : '' }}">
-                                @if ($page == $appointments->currentPage())
-                                    <span
-                                        class="page-link border-0 bg-success text-white fw-semibold px-3 py-2">{{ $page }}</span>
-                                @else
-                                    <a class="page-link border-0 bg-white text-success fw-semibold px-3 py-2"
-                                        href="{{ $url }}">{{ $page }}</a>
-                                @endif
-                            </li>
-                        @endforeach
-
-                        @if ($appointments->hasMorePages())
-                            <li class="page-item">
-                                <a class="page-link border-0 bg-white text-success fw-semibold px-3 py-2"
-                                    href="{{ $appointments->nextPageUrl() }}" rel="next">
-                                    Next <i class="bi bi-chevron-right"></i>
-                                </a>
-                            </li>
-                        @else
-                            <li class="page-item disabled">
-                                <span class="page-link border-0 bg-light text-secondary px-3 py-2">
-                                    Next <i class="bi bi-chevron-right"></i>
-                                </span>
-                            </li>
-                        @endif
-                    </ul>
-                </nav>
-            @endif
+            <div class="appointments-pagination d-flex justify-content-center mt-4 text-success">
+                {{ $appointments->links() }}
+            </div>
 
         </div>
 

@@ -32,6 +32,18 @@ Route::get('/reset-password/{token}', [ResetPasswordController::class, 'showRese
 Route::post('/reset-password', [ResetPasswordController::class, 'reset'])
     ->name('password.update');
 
+// ================================================================================================================================== //
+
+Route::middleware(['web'])->group(function () {
+
+    Route::get('/lang/{lang}', function ($lang) {
+        if (in_array($lang, ['en', 'ar'])) {
+            session(['locale' => $lang]);
+        }
+        return back();
+    });
+});
+
 // ================================================================================================================================= //
 
 Route::middleware(['auth'])->group(function () {

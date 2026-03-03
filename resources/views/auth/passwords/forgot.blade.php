@@ -13,13 +13,6 @@
 
 <body>
 
-    {{-- @if (session('status'))
-        <div class="alert alert-success text-center">
-            <i class="bi bi-check-circle-fill"></i>
-            {{ session('status') }}
-        </div>
-    @endif --}}
-
     <div class="d-flex justify-content-center align-items-center min-vh-100">
         <div class="col-md-5 col-lg-4">
             <div class="login-card">

@@ -78,9 +78,10 @@
                             @if (old('medicines'))
                                 @foreach (old('medicines') as $mid => $m)
                                     <div class="col-md-4 med-card" data-id="{{ $mid }}">
-                                        <div class="p-2 border rounded bg-light">
+                                        <div class="p-2 border rounded bg-body">
                                             <strong>{{ $medicines->firstWhere('id', $mid)->name ?? '—' }}</strong>
-                                            <div class="small text-muted">Dosage: {{ $m['dosage'] ?? '' }} — Duration:
+                                            <div class="small text-body-secondary">Dosage: {{ $m['dosage'] ?? '' }} —
+                                                Duration:
                                                 {{ $m['duration'] ?? '' }}</div>
 
                                             <input type="hidden" name="medicines[{{ $mid }}][selected]"
@@ -98,9 +99,10 @@
                             @elseif(isset($prescription) && $prescription->medicines->count())
                                 @foreach ($prescription->medicines as $pm)
                                     <div class="col-md-4 med-card" data-id="{{ $pm->id }}">
-                                        <div class="p-2 border rounded bg-light">
+                                        <div class="p-2 border rounded bg-body">
                                             <strong>{{ $pm->name }}</strong>
-                                            <div class="small text-muted">Dosage: {{ $pm->pivot->dosage }} — Duration:
+                                            <div class="small text-body-secondary">Dosage: {{ $pm->pivot->dosage }} —
+                                                Duration:
                                                 {{ $pm->pivot->duration }}</div>
 
                                             <input type="hidden" name="medicines[{{ $pm->id }}][selected]"
@@ -216,9 +218,9 @@
                 col.className = 'col-md-4 med-card';
                 col.setAttribute('data-id', medId);
                 col.innerHTML = `
-                <div class="p-2 border rounded bg-light">
+                <div class="p-2 border rounded bg-body">
                     <strong>${escapeHtml(medName)}</strong>
-                    <div class="small text-muted">Dosage: ${escapeHtml(dosage)} — Duration: ${escapeHtml(duration)}</div>
+                    <div class="small text-body-secondary">Dosage: ${escapeHtml(dosage)} — Duration: ${escapeHtml(duration)}</div>
 
                     <input type="hidden" name="medicines[${medId}][selected]" value="1">
                     <input type="hidden" name="medicines[${medId}][dosage]" value="${escapeAttr(dosage)}">

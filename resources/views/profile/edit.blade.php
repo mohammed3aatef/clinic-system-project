@@ -10,7 +10,7 @@
 
                     <div class="card-header bg-info text-white text-center py-4 rounded-top-4">
                         <h3 class="mb-0">
-                            <i class="bi bi-pencil-square me-2"></i> Edit Profile
+                            <i class="bi bi-pencil-square me-2"></i> {{ __('general.edit_profile') }}
                         </h3>
                     </div>
 
@@ -27,7 +27,7 @@
 
                             <div class="mb-3">
                                 <label class="form-label fw-semibold">
-                                    <i class="bi bi-person-fill"></i> Name
+                                    <i class="bi bi-person-fill"></i> {{ __('general.profile_name') }}
                                 </label>
                                 <input type="text" name="name"
                                     class="form-control @error('name') is-invalid @enderror"
@@ -39,7 +39,7 @@
 
                             <div class="mb-3">
                                 <label class="form-label fw-semibold">
-                                    <i class="bi bi-envelope-fill"></i> Email
+                                    <i class="bi bi-envelope-fill"></i> {{ __('general.profile_email') }}
                                 </label>
                                 <input type="email" name="email"
                                     class="form-control @error('email') is-invalid @enderror"
@@ -51,11 +51,11 @@
 
                             <div class="mb-3">
                                 <label class="form-label fw-semibold">
-                                    <i class="bi bi-lock-fill"></i> New Password
+                                    <i class="bi bi-lock-fill"></i> {{ __('general.new_password') }}
                                 </label>
                                 <input type="password" name="password"
                                     class="form-control @error('password') is-invalid @enderror"
-                                    placeholder="Leave empty to keep current password">
+                                    placeholder="{{ __('general.new_pass_place') }}">
                                 @error('password')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -63,19 +63,19 @@
 
                             <div class="mb-3">
                                 <label class="form-label fw-semibold">
-                                    <i class="bi bi-shield-lock-fill"></i> Confirm Password
+                                    <i class="bi bi-shield-lock-fill"></i> {{ __('general.confirm_password') }}
                                 </label>
                                 <input type="password" name="password_confirmation" class="form-control"
-                                    placeholder="Confirm new password">
+                                    placeholder="{{ __('general.con_pass_place') }}">
                             </div>
 
                             <div class="text-center mt-4">
                                 <a href="{{ route('profile.index') }}" class="btn btn-outline-info me-2">
-                                    <i class="bi bi-arrow-left"></i> Cancel
+                                    <i class="bi bi-arrow-left"></i> {{ __('general.cancel') }}
                                 </a>
 
                                 <button type="submit" class="btn btn-info px-4">
-                                    <i class="bi bi-check2-circle"></i> Save Changes
+                                    <i class="bi bi-check2-circle"></i> {{ __('general.save_changes') }}
                                 </button>
                             </div>
                         </form>
@@ -83,7 +83,7 @@
                     </div>
 
                     <div class="card-footer text-center text-muted py-3">
-                        <small>&copy; {{ date('Y') }} Patient Management System</small>
+                        <small>&copy; {{ date('Y') }} {{ __('general.footer') }}</small>
                     </div>
 
                 </div>
